@@ -1,0 +1,13 @@
+{% from "macros.njk" import renderGameCells, footerNav %}
+{%- if fAdmin %}<button id="close">Close Week</button>{% endif -%}
+<table id="form" class="pickable">
+  <tr class="warning" style="display:none;"><td colspan="5">You haven't made all of your picks yet!</td></tr>
+  {% for day in week.schedule %}
+  <tr class="date-header"><td colspan="5">{{day.date}}</td></tr>
+  {% for game in day.games %}
+  <tr class="game"><td>&nbsp;</td>{{ renderGameCells(game, [], true) }}<td>&nbsp;</td></tr>
+  {% endfor %}
+  {% endfor %}
+  <tr><td colspan="5"><button id="submit" disabled>{{ "Update" if week.picks[0] else "Submit" }}</button></td></tr>
+</table>
+{{ footerNav(prev, home, next) }}

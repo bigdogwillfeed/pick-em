@@ -1,0 +1,72 @@
+{% macro logo(name, size='large') -%}
+{% set name = name | lower -%}
+{% set alt = "?" -%}
+{% if name == "cardinals" %}{% set alt = 'ARI' -%}
+{% elif name == "falcons" %}{% set alt = 'ATL' -%}
+{% elif name == "ravens" %}{% set alt = 'BAL' -%}
+{% elif name == "bills" %}{% set alt = 'BUF' -%}
+{% elif name == "panthers" %}{% set alt = 'CAR' -%}
+{% elif name == "bears" %}{% set alt = 'CHI' -%}
+{% elif name == "bengals" %}{% set alt = 'CIN' -%}
+{% elif name == "browns" %}{% set alt = 'CLE' -%}
+{% elif name == "cowboys" %}{% set alt = 'DAL' -%}
+{% elif name == "broncos" %}{% set alt = 'DEN' -%}
+{% elif name == "lions" %}{% set alt = 'DET' -%}
+{% elif name == "packers" %}{% set alt = 'GB' -%}
+{% elif name == "texans" %}{% set alt = 'HOU' -%}
+{% elif name == "colts" %}{% set alt = 'IND' -%}
+{% elif name == "jaguars" %}{% set alt = 'JAX' -%}
+{% elif name == "chiefs" %}{% set alt = 'KC' -%}
+{% elif name == "dolphins" %}{% set alt = 'MIA' -%}
+{% elif name == "vikings" %}{% set alt = 'MIN' -%}
+{% elif name == "patriots" %}{% set alt = 'NE' -%}
+{% elif name == "saints" %}{% set alt = 'NO' -%}
+{% elif name == "giants" %}{% set alt = 'NYG' -%}
+{% elif name == "jets" %}{% set alt = 'NYJ' -%}
+{% elif name == "raiders" %}{% set alt = 'OAK' -%}
+{% elif name == "eagles" %}{% set alt = 'PHI' -%}
+{% elif name == "steelers" %}{% set alt = 'PIT' -%}
+{% elif name == "chargers" %}{% set alt = 'LAC' -%}
+{% elif name == "seahawks" %}{% set alt = 'SEA' -%}
+{% elif name == "49ers" %}{% set name = "_49ers" %}{% set alt = 'SF' -%}
+{% elif name == "rams" %}{% set alt = 'LA' -%}
+{% elif name == "buccaneers" %}{% set alt = 'TB' -%}
+{% elif name == "titans" %}{% set alt = 'TEN' -%}
+{% elif name == "redskins" %}{% set alt = 'WAS' -%}
+{% endif -%}
+{% if alt == "?" -%}
+?
+{%- else %}
+<div class="alttext">{{alt | upper}}</div>
+<div class="logo {{name | lower}}-{{size | lower}} {{size | lower}}"></div>
+{% endif -%}
+{% endmacro %}
+
+{% macro renderGameCells(game, winners, pickable) %}
+<td id="{{game.away | lower}}" class="away team{{ " pickable" if pickable}}{{ " winner" if winners.indexOf(game.away) > -1 }}">
+<span class="logo">{{- logo(game.away) if winners.length === 0 -}}</span>
+<span class="team">{{game.away}}</span>
+<td class="at">AT</td>
+<td id="{{game.home | lower}}" class="home team{{ " pickable" if pickable}}{{ " winner" if winners.indexOf(game.home) > -1 }}">
+<span class="logo">{{- logo(game.home) if winners.length === 0 -}}</span>
+<span class="team">{{game.home}}</span>
+{% endmacro %}
+
+{% macro footerNav(prev, home, next) %}
+<footer>
+<hr><hr>
+<table class="nav">
+  <tbody>
+    <tr>
+      <td>{{ navButton(prev.label, prev.name) if prev else &nbsp; }}</td>
+      <td>{{ navButton(home.label, home.name) }}</td>
+      <td>{{ navButton(next.label, next.name) if next else &nbsp; }}</td>
+    </tr>
+  </tbody>
+</table>
+</footer>
+{% endmacro %}
+
+{% macro navButton(target, label) %}
+<button class="nav" data-target="{{target}}">{{label}}</button>
+{% endmacro %}

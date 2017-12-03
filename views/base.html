@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500i|Orbitron|Peddana" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      {% if user %}
+      <nav>
+        <ul>
+          <li id="user">
+            <img src="https://graph.facebook.com/{{ user.id }}/picture?type=square&height=70&&width=70">
+            <ul><li><a href="/logout">Sign Out</a></li></ul>
+          </li>
+        </ul>
+      </nav>
+      {% endif %}
+      {% if miniprofiler %}{{ miniprofiler.include() }}{% endif %}
+      {% block header %}
+      <!-- override 'block header' in your template -->
+      {% endblock %}
+    <hr>
+    <hr>
+    </header>
+    <content>
+    {% block content %}
+    <!-- override 'block content' in your template -->
+    {% endblock %}
+    </content>
+    
+    {% if user %}<script>var user = {{ user | dump | safe }};</script>{% endif %}
+    {% block scripts %}
+    <!-- override 'block scripts' in your template -->
+    {% endblock %}
+  </body>
+</html>
