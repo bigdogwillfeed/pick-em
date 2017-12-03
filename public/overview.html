@@ -1,0 +1,14 @@
+<table class="overview">
+  <tbody>
+    <tr><td>&nbsp;</td>{% for name in names %}<th scope="col">{{name}}</th>{% endfor %}</tr>
+    {% for week in weeks %}
+    <tr data-target="{{week.label}}">
+      <th scope="row"><a class="week" href="#{{week.label}}">{{week.name}}</a></th>
+      {% for name in names %}<td>{{week.scores[name] | default('-')}}</td>{% endfor %}
+    </tr>
+    {% endfor %}
+    <tr class="totals"><th scope="row">Season Total</th>
+      {% for name in names %}<td>{{totals[name]}}</td>{% endfor %}
+    </tr>
+  </tbody>
+</table>

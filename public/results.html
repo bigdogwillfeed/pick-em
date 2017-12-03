@@ -1,0 +1,37 @@
+{% from "macros.njk" import logo, renderGameCells, footerNav %}
+<table id="form" class="results">
+  <tbody>
+    {%- if fAdmin -%}
+    <tr class="warning" style="display:none;">
+      <td colspan="{{ 3 + names.length }}">You haven't submitted all of the winners yet!</td>
+    </tr>
+    {%- endif -%}
+    <tr><td colspan="3">&nbsp;</td>{% for name in names %}<td class="person">{{name}}</td>{% endfor %}</tr>
+    {% set idx = 0 %}
+    {% for day in week.schedule %}{% for game in day.games %}
+    <tr class="{{ 'game' if fAdmin }}">{{ renderGameCells(game, week.winners, fAdmin) }}
+      {% for person in week.picks %}
+      {% if person.picks.indexOf(game.home) > -1 %}
+        {% set l = logo(game.home) %}
+      {% elif person.picks.indexOf(game.away) > -1 %}
+        {% set l = logo(game.away) %}
+      {% else %}
+        {% set l = '?' %}
+      {% endif %}
+      <td class="pick{{ ' idk' if l == '?' }}">{{ l }}</td>
+      {% endfor %}
+    </tr>
+    {% set idx = idx+1 %}
+    {% endfor %}{% endfor %}
+    {%- if fAdmin -%}
+    <tr><td colspan="5"><button id="winners" disabled>{{ "Update" if week.winners[0] else "Submit" }}</button></td></tr>
+    {%- endif -%}
+    <tr class="totals"><td colspan="3">Total Correct</td>
+      {% for person in week.picks %}<td>{{ person.score }}</td>{% endfor %}
+    </tr>
+    <tr class="totals"><th scope="row" colspan="3">Season Totals</th>
+      {% for name in names %}<td>{{totals[name]}}</td>{% endfor %}
+    </tr>
+  </tbody>
+</table>
+{{ footerNav(prev, home, next) }}

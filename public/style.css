@@ -1,0 +1,426 @@
+html {
+  font-family: 'Peddana', serif;
+}
+
+a {
+	color: black;
+  font-family: 'Alegreya Sans SC', sans-serif;
+	text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  height: 60px;
+  padding: 0;
+  z-index: 1;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  height: 80px;
+  padding: 0px;
+}
+
+content {
+  margin: 70px auto 90px auto;
+  display: block;
+}
+
+h1 {
+  padding: 5px 5px 0px 5px;
+  text-align: center;
+  font-size: 2.5rem;
+  line-height: 2.2rem;
+}
+
+/* nav */
+nav
+{
+	position: relative;
+  float: right;
+}
+nav ul
+{
+	list-style: none;
+	position: relative;
+	float: right;
+	margin: 0;
+	padding: 0
+}
+nav ul a
+{
+	display: block;
+	padding: 5px 10px 0px 10px;
+}
+nav ul li
+{
+	position: relative;
+	float: right;
+	margin: 0;
+	padding: 0;
+	background: white
+}
+nav ul li:hover
+{
+	background: lightgrey;
+}
+nav ul ul
+{
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: white;
+	padding: 0
+}
+nav ul ul li
+{
+	float: none;
+	width: 100%
+}
+nav ul ul a
+{
+	font-size: 1.1rem;
+	line-height: 32px;
+	padding: 5px
+}
+nav ul li:hover > ul
+{
+	display: block;
+  width: 100%;
+}
+/* end nav */
+
+/* sign in */
+img#facebook {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+table.overview a.week {
+  font-family: 'Peddana', serif;
+}
+
+table {
+  font-size: 2rem;
+}
+
+#form td {
+  text-transform: uppercase;
+  border: none;
+  height: 40px;
+  min-width: 40px;
+  text-align: center;
+}
+#form td.person {
+  text-transform: none;
+  border-left: 1px solid grey;
+}
+#form.results tr:nth-child(even) {
+  background-color: lightgrey;
+}
+#form .date-header td {
+  border-bottom: 1px solid black;
+  text-align: left;
+  vertical-align: bottom;
+}
+#form .game {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+#form.pickable td.team {
+  width: 360px;
+}
+#form.results .team {
+  width: 160px;
+  font-size: 1.4rem;
+}
+#form.results .team span.team {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#form .team.winner span.team {
+  background-color: lightgreen;
+}
+#form .away {
+  text-align: right;
+}
+#form .home {
+  text-align: left;
+}
+tr.game {
+  font-size: 0rem;
+}
+td.team {
+  font-size: 1.6rem;
+}
+td.pick.idk {
+  font-size: 2rem;
+}
+span.team {
+  font-family: Orbitron, sans-serif;
+  display: inherit;
+  width: inherit;
+  padding-top: 10%;
+}
+#form .picked {
+  background-color: gold;
+}
+#form .required {
+  background-color: white;
+  border: 3px solid red;
+}
+#form .team.away span.logo {
+  float: right;
+}
+#form .team.home span.logo {
+  float: left;
+}
+#form .at {
+  width: 40px;
+  font-size: 1.4rem;
+  top: 9px;
+  text-align: center;
+}
+#form span {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#view button {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 1.4rem;
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+}
+button#submit {
+  margin-top: 15px;
+}
+button#close {
+  position: absolute;
+  right: 10%;
+}
+tr.totals {
+  background-color: whitesmoke !important;
+  border-top: 3px solid grey;
+}
+#form .totals td, #form .totals th {
+  border-right: 1px solid grey;
+  text-transform: none;
+}
+table.nav {
+  border: none !important;
+  width: 900px;
+  margin: auto;
+}
+table.nav td {
+  border: none !important;
+  width: 33%;
+  text-align: center;
+}
+table.overview {
+  font-size: 2rem;
+  text-align: center;
+  width: 900px;
+  margin: auto;
+}
+table.overview tr:nth-child(even) {
+  background-color: lightgrey;
+}
+table#form {
+  width: 900px;
+  margin: auto;
+}
+
+#dialog {
+  position: fixed;
+  display: none;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(255,255,255,0.6);
+}
+#dialog div {
+  position: relative;
+  top: 30%;
+  min-height: 20%;
+  width: 50%;
+  padding: 25px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: black;
+  font-size: 1.4rem;
+}
+#dialog .error {
+  background-color: lightpink;
+  text-transform: uppercase;
+}
+#dialog .success {
+  background-color: lightgreen;
+  text-transform: none;
+}
+.warning {
+  background-color: lightpink;
+}
+.loading {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  top: 20%;
+}
+
+@media print {
+  div.logo.large {
+    display: none;
+  }
+  .results div.alttext {
+    display: table-cell;
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+  #form td.pick {
+    border-left: 1px solid grey;
+  }
+  #form.results tr:nth-child(even) {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+  }
+}
+div.alttext {
+  display: none;
+}
+div.logo {
+  background-image: url('https://cdn.glitch.com/e075ad37-838a-41bf-b80e-660640a3a114%2Flogo_sprites.svg?1499098324206');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+/* small logos on picks page 34px high */
+div.logo.small, div.alttext {
+  height: 34px;
+  width: 50px;
+  background-position: 0px 34px;
+}
+._49ers-small { background-position: 0 calc(0 * -34px) !important; }
+.bears-small { background-position: 0 calc(1 * -34px) !important; }
+.bengals-small { background-position: 0 calc(2 * -34px) !important; }
+.bills-small { background-position: 0 calc(3 * -34px) !important; }
+.broncos-small { background-position: 0 calc(4 * -34px) !important; }
+.browns-small { background-position: 0 calc(5 * -34px) !important; }
+.buccaneers-small { background-position: 0 calc(6 * -34px) !important; }
+.cardinals-small { background-position: 0 calc(7 * -34px) !important; }
+.chargers-small { background-position: 0 calc(8 * -34px) !important; }
+.chiefs-small { background-position: 0 calc(9 * -34px) !important; }
+.colts-small { background-position: 0 calc(10 * -34px) !important; }
+.cowboys-small { background-position: 0 calc(11 * -34px) !important; }
+.dolphins-small { background-position: 0 calc(12 * -34px) !important; }
+.eagles-small { background-position: 0 calc(13 * -34px) !important; }
+.falcons-small { background-position: 0 calc(14 * -34px) !important; }
+.giants-small { background-position: 0 calc(15 * -34px) !important; }
+.jaguars-small { background-position: 0 calc(16 * -34px) !important; }
+.jets-small { background-position: 0 calc(17 * -34px) !important; }
+.lions-small { background-position: 0 calc(18 * -34px) !important; }
+.packers-small { background-position: 0 calc(19 * -34px) !important; }
+.panthers-small { background-position: 0 calc(20 * -34px) !important; }
+.patriots-small { background-position: 0 calc(21 * -34px) !important; }
+.raiders-small { background-position: 0 calc(22 * -34px) !important; }
+.rams-small { background-position: 0 calc(23 * -34px) !important; }
+.ravens-small { background-position: 0 calc(24 * -34px) !important; }
+.redskins-small { background-position: 0 calc(25 * -34px) !important; }
+.saints-small { background-position: 0 calc(26 * -34px) !important; }
+.seahawks-small { background-position: 0 calc(27 * -34px) !important; }
+.steelers-small { background-position: 0 calc(28 * -34px) !important; }
+.texans-small { background-position: 0 calc(29 * -34px) !important; }
+.titans-small { background-position: 0 calc(30 * -34px) !important; }
+.vikings-small { background-position: 0 calc(31 * -34px) !important; }
+
+/* large logos on results page, 68px tall */
+div.logo.large {
+  height: 68px;
+  width: 100px;
+}
+@media screen {
+  div.logo.large {
+    display: inline-block;
+  }
+}
+._49ers-large { background-position: 0 calc(0 * -68px); }
+.bears-large { background-position: 0 calc(1 * -68px); }
+.bengals-large { background-position: 0 calc(2 * -68px); }
+.bills-large { background-position: 0 calc(3 * -68px); }
+.broncos-large { background-position: 0 calc(4 * -68px); }
+.browns-large { background-position: 0 calc(5 * -68px); }
+.buccaneers-large { background-position: 0 calc(6 * -68px); }
+.cardinals-large { background-position: 0 calc(7 * -68px); }
+.chargers-large { background-position: 0 calc(8 * -68px); }
+.chiefs-large { background-position: 0 calc(9 * -68px); }
+.colts-large { background-position: 0 calc(10 * -68px); }
+.cowboys-large { background-position: 0 calc(11 * -68px); }
+.dolphins-large { background-position: 0 calc(12 * -68px); }
+.eagles-large { background-position: 0 calc(13 * -68px); }
+.falcons-large { background-position: 0 calc(14 * -68px); }
+.giants-large { background-position: 0 calc(15 * -68px); }
+.jaguars-large { background-position: 0 calc(16 * -68px); }
+.jets-large { background-position: 0 calc(17 * -68px); }
+.lions-large { background-position: 0 calc(18 * -68px); }
+.packers-large { background-position: 0 calc(19 * -68px); }
+.panthers-large { background-position: 0 calc(20 * -68px); }
+.patriots-large { background-position: 0 calc(21 * -68px); }
+.raiders-large { background-position: 0 calc(22 * -68px); }
+.rams-large { background-position: 0 calc(23 * -68px); }
+.ravens-large { background-position: 0 calc(24 * -68px); }
+.redskins-large { background-position: 0 calc(25 * -68px); }
+.saints-large { background-position: 0 calc(26 * -68px); }
+.seahawks-large { background-position: 0 calc(27 * -68px); }
+.steelers-large { background-position: 0 calc(28 * -68px); }
+.texans-large { background-position: 0 calc(29 * -68px); }
+.titans-large { background-position: 0 calc(30 * -68px); }
+.vikings-large { background-position: 0 calc(31 * -68px); }
+
+
+/* Table Styles */table {
+  border-collapse: collapse;
+}
+h1 {
+  margin: 0;
+}
+.center {
+  text-align: center;
+}
+#body {
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px #ccc;
+  margin: -1px 0 0 270px;
+  min-width: 650px;
+  max-width: 960px;
+  _width: 650px;
+  padding: 0;
+}
+
+@media print {
+  
+  #body {
+    background: none !important;
+    border: none !important;
+    box-shadow: none;
+    margin: 0;
+    width: auto;
+  }
+}

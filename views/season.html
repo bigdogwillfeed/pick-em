@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 id="headline">Season Totals - 2016-17</h1>
+{% endblock %}
+
+{% block content %}
+<img class="loading" src="https://cdn.glitch.com/e075ad37-838a-41bf-b80e-660640a3a114%2Floading.gif?1501725090606" />
+<div id="view"></div>
+<div id="dialog" style="display: none;"><div></div></div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+{% if precompiled -%}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks-slim.min.js"></script>
+<script type="text/javascript" src="/templates.js"></script>
+{%- else -%}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
+{%- endif %}
+<script type="text/javascript" src="/client.js"></script>
+{% endblock %}
